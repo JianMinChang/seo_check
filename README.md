@@ -45,6 +45,7 @@ seoObj.loadHtmlContent(__dirname + '/test.html',seo_check.fileType.FILE).then(()
 ```
 
 #output
+##### result
 example passed log:
 
 ```
@@ -335,18 +336,4 @@ checker.loadHtmlContent(__dirname + '/test.html',seo_check.fileType.STREAM).then
         .GenerateReport(filepath,filename,seo_check.fileType.STREAM);
 
 });
-```
-
-/*console output
--------------------------
-checking result: /Library/WebServer/Documents/projects/201811_sb_hw/test_proj/test_vpon.html
-output to: output_1542256178825.txt
-file end exported
-a tag:             Failed, 121 a tag(s) without rel attribute found
-*/
-
-/*output_[time].txt output
-h1:                OK 
-strong tag:        OK 
-*/
 ```
