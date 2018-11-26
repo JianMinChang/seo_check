@@ -23,7 +23,7 @@ describe("test msg of IsNotExistTag.",() => {
     });
 
     test("IsNotExistTag - check not exist h1 tag ",() => {
-        expect(  report.IsNotExistTag(false,"h1")).toBe("This HTML not has <h1> tag.");
+        expect(  report.IsNotExistTag(false,"h1")).toBe("This HTML haven't <h1> tag.");
     });
 
 });
@@ -49,20 +49,16 @@ describe("test msg of IsheadContentCheck.",() => {
         expect(  report.IsheadContentCheck({
             title: true,
             meta_keyword: true,
-            meta_descriptions:true
-        })).toBe(`This head have <title> tag.
-    This head have <meta name='descriptions'> tag.
-    This head have <meta name='keyword'> tag.`);
+            meta_descript:true
+        })).toBe(`This head have <title> tag.This head have <meta name='description'> tag.This head have <meta name='keyword'> tag.`);
     });
 
-    test("IsheadContentCheck - check title, meta-keywords, meta-descriptions -  not exist ",() => {
+    test("IsheadContentCheck - check title, meta-keywords, meta-description -  not exist ",() => {
         expect(  report.IsheadContentCheck({
             title: false,
             meta_keyword: false,
-            meta_descriptions:false
-        })).toBe(`This head haven't <title> tag.
-    This head haven't <meta name='descriptions'> tag.
-    This head haven't <meta name='keyword'> tag.`);
+            meta_descript:false
+        })).toBe(`This head haven't <title> tag.This head haven't <meta name='description'> tag.This head haven't <meta name='keyword'> tag.`);
     });
 
 });

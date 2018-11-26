@@ -90,7 +90,7 @@ describe("check html head. ",() => {
         );
     });
 
-    test("has title, no  meta name='descriptions' , meta name='keywords' ",()=>{
+    test("has title, no  meta name='description' , meta name='keywords' ",()=>{
         let $=cheerio.load('<html><head><title>This is test</tItle></head><body><h2 class="title">Hello world</h2><a id="link1" href="https://www.vpon.com">Vpon_link</a><a id="link2" rel="link2" href="https://www.vpon.com" >Vpon_link2</a></body></html>');
 
         expect(check.checkhead($)).toEqual(
@@ -103,7 +103,7 @@ describe("check html head. ",() => {
     });
 
     test("has title, meta name='descriptions' , no meta name='keywords' ",()=>{
-        let $=cheerio.load('<html><head><meta Name="descriptions" /><title>This is test</tItle></head><body><h2 class="title">Hello world</h2><a id="link1" href="https://www.vpon.com">Vpon_link</a><a id="link2" rel="link2" href="https://www.vpon.com" >Vpon_link2</a></body></html>');
+        let $=cheerio.load('<html><head><meta Name=\'description\' /><title>This is test</tItle></head><body><h2 class="title">Hello world</h2><a id="link1" href="https://www.vpon.com">Vpon_link</a><a id="link2" rel="link2" href="https://www.vpon.com" >Vpon_link2</a></body></html>');
 
         expect(check.checkhead($)).toEqual(
             expect.objectContaining({
@@ -115,7 +115,7 @@ describe("check html head. ",() => {
     });
 
     test("has title, meta name='descriptions' , meta name='keywords' ",()=>{
-        let $=cheerio.load('<html><head><meta Name="descriptions" /><meta Name="keywords" /><title>This is test</tItle></head><body><h2 class="title">Hello world</h2><a id="link1" href="https://www.vpon.com">Vpon_link</a><a id="link2" rel="link2" href="https://www.vpon.com" >Vpon_link2</a></body></html>');
+        let $=cheerio.load('<html><head><meta name="description" content=""><meta Name="descriptions" /><meta Name="keywords" /><title>This is test</tItle></head><body><h2 class="title">Hello world</h2><a id="link1" href="https://www.vpon.com">Vpon_link</a><a id="link2" rel="link2" href="https://www.vpon.com" >Vpon_link2</a></body></html>');
 
         expect(check.checkhead($)).toEqual(
             expect.objectContaining({
@@ -130,7 +130,7 @@ describe("check html head. ",() => {
 describe("check custom html tag - meta name='robots'",()=>{
 
     test("no  meta name='robots' ",()=>{
-        let $=cheerio.load('<html><head><meta Name="descriptions" /><meta Name="keywords" /><title>This is test</tItle></head><body><h2 class="title">Hello world</h2><a id="link1" href="https://www.vpon.com">Vpon_link</a><a id="link2" rel="link2" href="https://www.vpon.com" >Vpon_link2</a></body></html>');
+        let $=cheerio.load('<html><head><meta Name="description" /><meta Name="keywords" /><title>This is test</tItle></head><body><h2 class="title">Hello world</h2><a id="link1" href="https://www.vpon.com">Vpon_link</a><a id="link2" rel="link2" href="https://www.vpon.com" >Vpon_link2</a></body></html>');
 
         expect(check.checkExtend($,"meta","name","robots")).toBe(false);
     });
