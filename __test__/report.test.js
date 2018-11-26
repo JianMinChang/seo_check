@@ -92,7 +92,7 @@ describe("test report save",() => {
         }
 
         let htmlcontent="This HTML haven't more than 15 <strong> tag.";
-        report.savelog(testdir+"/testfile/","test.log",htmlcontent,()=>{
+        report.savelog(testdir+"/testfile/","test.log",htmlcontent,0,()=>{
             expect(fs.existsSync(testdir+"/testfile/"+"test.log")).toBe(true);
         });
     });

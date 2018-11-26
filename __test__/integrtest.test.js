@@ -18,27 +18,31 @@ describe("Integrtest test index.html",() => {
         let filepath=testdir+"/testfile/";
         let filename="a.log";
 
-        seoObj.loadFile(path);
-        seoObj.checka().checkh2().checkh1().checkimg().checkstrong().checkhead().checkMetaAttrRobots().GenerateReport(filepath,filename,() =>{
-           
-            fs.readFile(filepath+filename,'UTF-8' ,function (err, data) {
-                if (err) throw err;
-                
-                let wordArray = [
-                    "There are 3 <img> without alt attribute.",
-                    "There are 2 <a> without rel attribute.",
-                    "This head have <title> tag.",
-                    "This head haven't <meta name='descriptions'> tag.",
-                    "This head have <meta name='keyword'> tag.",
-                    "This HTML haven't more than 5 <strong> tag.",
-                    "This HTML haven't more than 1 <h1> tag.",
-                    "This HTML not has <h2> tag.",
-                    "This HTML have meta tag attribute key=name value=robots."
-                ];
+        seoObj.loadHtmlContent(path,seo_check.fileType.FILE).then(()=>{
 
-                expect(data).toEqual(expect.arrayContaining(wordArray));
+            seoObj.checka().checkh2().checkh1().checkimg().checkstrong().checkhead().checkMetaAttrRobots().GenerateReport(filepath,filename,seo_check.fileType.FILE,() =>{
+            
+                fs.readFile(filepath+filename,'UTF-8' ,function (err, data) {
+                    if (err) throw err;
+                    
+                    let wordArray = [
+                        "There are 3 <img> without alt attribute.",
+                        "There are 2 <a> without rel attribute.",
+                        "This head have <title> tag.",
+                        "This head haven't <meta name='descriptions'> tag.",
+                        "This head have <meta name='keyword'> tag.",
+                        "This HTML haven't more than 5 <strong> tag.",
+                        "This HTML haven't more than 1 <h1> tag.",
+                        "This HTML not has <h2> tag.",
+                        "This HTML have meta tag attribute key=name value=robots."
+                    ];
+                    for(let i = 0 ;i<wordArray.length; i++){
+                        expect(data.toString().indexOf(wordArray[i])>=-1).toEqual(true);
+                    }
+                });
+
             });
-
+            
         });
 
     });
@@ -54,29 +58,31 @@ describe("Integrtest test neg.html",() => {
         let filepath=testdir+"/testfile/";
         let filename="neg.log";
 
-        seoObj.loadFile(path);
-        seoObj.checka().checkh2().checkh1().checkimg().checkstrong().checkhead().checkMetaAttrRobots().GenerateReport(filepath,filename,() =>{
-           
-            fs.readFile(filepath+filename,'UTF-8' ,function (err, data) {
-                if (err) throw err;
-                
-                let wordArray = [
-                    "There are 15 <img> without alt attribute.",
-                    "There are 128 <a> without rel attribute.",
-                    "This head haven't <title> tag.",
-                    "This head haven't <meta name='descriptions'> tag.",
-                    "This head haven't <meta name='keyword'> tag.",
-                    "This HTML haven't more than 5 <strong> tag.",
-                    "This HTML haven't more than 1 <h1> tag.",
-                    "This HTML have <h2> tag.",
-                    "This HTML haven't meta tag attribute key=name value=robots."
-                ];
+        seoObj.loadHtmlContent(path,seo_check.fileType.STREAM).then(()=>{
+            seoObj.checka().checkh2().checkh1().checkimg().checkstrong().checkhead().checkMetaAttrRobots().GenerateReport(filepath,filename,seo_check.fileType.STREAM,() =>{
+            
+                fs.readFile(filepath+filename,'UTF-8' ,function (err, data) {
+                    if (err) throw err;
+                    
+                    let wordArray = [
+                        "There are 15 <img> without alt attribute.",
+                        "There are 128 <a> without rel attribute.",
+                        "This head haven't <title> tag.",
+                        "This head haven't <meta name='descriptions'> tag.",
+                        "This head haven't <meta name='keyword'> tag.",
+                        "This HTML haven't more than 5 <strong> tag.",
+                        "This HTML haven't more than 1 <h1> tag.",
+                        "This HTML have <h2> tag.",
+                        "This HTML haven't meta tag attribute key=name value=robots."
+                    ];
 
-                expect(data).toEqual(expect.arrayContaining(wordArray));
+                    for(let i = 0 ;i<wordArray.length; i++){
+                        expect(data.toString().indexOf(wordArray[i])>=-1).toEqual(true);
+                    }
+                });
+
             });
-
         });
-
     });
 
 });
@@ -90,29 +96,31 @@ describe("Integrtest test pos.html",() => {
         let filepath=testdir+"/testfile/";
         let filename="pos.log";
 
-        seoObj.loadFile(path);
-        seoObj.checka().checkh2().checkh1().checkimg().checkstrong().checkhead().checkMetaAttrRobots().GenerateReport(filepath,filename,() =>{
-           
-            fs.readFile(filepath+filename,'UTF-8' ,function (err, data) {
-                if (err) throw err;
-                
-                let wordArray = [
-                    "The <img> tag alt attribute is pass.",
-                    "The <a> tag rel attribute is pass.",
-                    "This head have <title> tag.",
-                    "This head have <meta name='description'> tag.",
-                    "This head have <meta name='keyword'> tag.",
-                    "This HTML haven't more than 5 <strong> tag.",
-                    "This HTML have more than 1 <h1> tag.",
-                    "This HTML have <h2> tag.",
-                    "This HTML have meta tag attribute key=name value=robots."
-                ];
+        seoObj.loadHtmlContent(path,seo_check.fileType.FILE).then(()=>{
+            seoObj.checka().checkh2().checkh1().checkimg().checkstrong().checkhead().checkMetaAttrRobots().GenerateReport(filepath,filename,seo_check.fileType.FILE,() =>{
+            
+                fs.readFile(filepath+filename,'UTF-8' ,function (err, data) {
+                    if (err) throw err;
+                    
+                    let wordArray = [
+                        "The <img> tag alt attribute is pass.",
+                        "The <a> tag rel attribute is pass.",
+                        "This head have <title> tag.",
+                        "This head have <meta name='description'> tag.",
+                        "This head have <meta name='keyword'> tag.",
+                        "This HTML haven't more than 5 <strong> tag.",
+                        "This HTML have more than 1 <h1> tag.",
+                        "This HTML have <h2> tag.",
+                        "This HTML have meta tag attribute key=name value=robots."
+                    ];
 
-                expect(data).toEqual(expect.arrayContaining(wordArray));
+                    for(let i = 0 ;i<wordArray.length; i++){
+                        expect(data.toString().indexOf(wordArray[i])>=-1).toEqual(true);
+                    }
+                });
+
             });
-
         });
-
     });
 
 });
