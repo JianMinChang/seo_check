@@ -1,0 +1,28 @@
+{
+  "name": "seo_check",
+  "version": "1.0.0",
+  "description": "seo_check",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest __test__/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://chang19870721@bitbucket.org/chang19870721/seo_check.git"
+  },
+  "keywords": [
+    "seo_check",
+    "html",
+    "nodejs",
+    "jquery"
+  ],
+  "author": "jack.chang",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/chang19870721/seo_check#readme",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2"
+  }
+}
