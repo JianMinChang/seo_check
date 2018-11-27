@@ -38,7 +38,7 @@ seoObj.loadHtmlContent(__dirname + '/test.html',seo_check.fileType.FILE).then(()
         .checkstrong()
         .checkhead()
         .checkMetaAttrRobots()
-        .GenerateReport(filepath,filename,seo_check.fileType.FILE);
+        .GenerateReport(seo_check.fileType.FILE,filepath,filename);
 
 });
 ```
@@ -168,9 +168,9 @@ checker.loadHtmlContent(path,seo_check.fileType.STREAM).then(()=>{
 
 ##### usage
 check rule: Detect if there’re more than 15 ``<strong>`` tag in HTML,
-you can modify the max by setting options ``maxStrongTagCnts``
+you can modify the max by setting options ``maxStrongTagCount``
 
-	var checker = new seo_check({maxStrongTagCnts:4});
+	var checker = new seo_check({maxStrongTagCount:4});
 
 ```
 checker.loadHtmlContent(__dirname + '/test.html').then(()=>{
@@ -280,7 +280,7 @@ to use
 
 ```
 //new instance
-const checker = new seo_check({debug:false, maxStrongTagCnts: 18});
+const checker = new seo_check({debug:false, maxStrongTagCount: 18});
 
 //load file with readable stream and apply rule checkRobotMeta. The call method no order.
 
@@ -293,7 +293,7 @@ checker.loadHtmlContent(__dirname + '/test.html',seo_check.fileType.STREAM).then
         .checkstrong()
         .checkhead()
         .checkMetaAttrRobots()
-        .GenerateReport(filepath,filename,seo_check.fileType.STREAM);
+        .GenerateReport(seo_check.fileType.STREAM,filepath,filename);
 
 });
 
@@ -319,8 +319,7 @@ When check rule finish. Call  GenerateReport to Render reoprt.
 |----------|------------|----------------|-----------------|
 | SavePath | string             |   SaveFilePath   | Required   |
 | Filename | string             |   SaveFileName   | Required   |
-|fileType  | seo_check.fileType |STREAM,FILE,CONSOLE|CONSOLE       |
-|callback  | function           |  fisish doing    |  Optional     |  
+| fileType | seo_check.fileType |STREAM,FILE,CONSOLE|CONSOLE     |
 
 ```
 checker.loadHtmlContent(__dirname + '/test.html',seo_check.fileType.STREAM).then(()=>{
@@ -332,7 +331,8 @@ checker.loadHtmlContent(__dirname + '/test.html',seo_check.fileType.STREAM).then
         .checkstrong()
         .checkhead()
         .checkMetaAttrRobots()
-        .GenerateReport(filepath,filename,seo_check.fileType.STREAM);
-
+        .GenerateReport(seo_check.fileType.STREAM,filepath,filename).then(()=>{
+            ...
+        });
 });
 ```
