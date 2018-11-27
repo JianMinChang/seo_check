@@ -20,7 +20,7 @@ describe("Integrtest test index.html",() => {
 
         seoObj.loadHtmlContent(path,seo_check.fileType.FILE).then(()=>{
 
-            seoObj.checka().checkh2().checkh1().checkimg().checkstrong().checkhead().checkMetaAttrRobots().GenerateReport(filepath,filename,seo_check.fileType.FILE,() =>{
+            seoObj.checka().checkh2().checkh1().checkimg().checkstrong().checkhead().checkMetaAttrRobots().GenerateReport(seo_check.fileType.FILE,filepath,filename).then(() =>{
             
                 fs.readFile(filepath+filename,'UTF-8' ,function (err, data) {
                     if (err) throw err;
@@ -59,7 +59,7 @@ describe("Integrtest test neg.html",() => {
         let filename="neg.log";
 
         seoObj.loadHtmlContent(path,seo_check.fileType.STREAM).then(()=>{
-            seoObj.checka().checkh2().checkh1().checkimg().checkstrong().checkhead().checkMetaAttrRobots().GenerateReport(filepath,filename,seo_check.fileType.STREAM,() =>{
+            seoObj.checka().checkh2().checkh1().checkimg().checkstrong().checkhead().checkMetaAttrRobots().GenerateReport(seo_check.fileType.STREAM,filepath,filename).then(() =>{
             
                 fs.readFile(filepath+filename,'UTF-8' ,function (err, data) {
                     if (err) throw err;
@@ -97,7 +97,7 @@ describe("Integrtest test pos.html",() => {
         let filename="pos.log";
 
         seoObj.loadHtmlContent(path,seo_check.fileType.FILE).then(()=>{
-            seoObj.checka().checkh2().checkh1().checkimg().checkstrong().checkhead().checkMetaAttrRobots().GenerateReport(filepath,filename,seo_check.fileType.FILE,() =>{
+            seoObj.checka().checkh2().checkh1().checkimg().checkstrong().checkhead().checkMetaAttrRobots().GenerateReport(seo_check.fileType.FILE,filepath,filename).then(() =>{
             
                 fs.readFile(filepath+filename,'UTF-8' ,function (err, data) {
                     if (err) throw err;

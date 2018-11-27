@@ -1,4 +1,3 @@
-# seo_check
 
 seo_checker
 ============

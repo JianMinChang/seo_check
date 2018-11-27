@@ -85,16 +85,27 @@ describe("test custom check msg of IsExistExtendChecklog", ()=>{
 
 describe("test report save",() => {
 
-    test("Save Report Success" ,() =>{
+    test("Save Report File Success" ,() =>{
 
         if(fs.existsSync(testdir+"/testfile/"+"test.log")==true){
             fs.unlinkSync(testdir+"/testfile/"+"test.log");
         }
 
         let htmlcontent="This HTML haven't more than 15 <strong> tag.";
-        report.savelog(testdir+"/testfile/","test.log",htmlcontent,0,()=>{
+        report.savelog(0,htmlcontent,testdir+"/testfile/","test.log").then(()=>{
             expect(fs.existsSync(testdir+"/testfile/"+"test.log")).toBe(true);
         });
     });
 
+    test("Save Report Stream Success" ,() =>{
+        
+        if(fs.existsSync(testdir+"/testfile/"+"test1.log")==true){
+            fs.unlinkSync(testdir+"/testfile/"+"test1.log");
+        }
+
+        let htmlcontent="This HTML haven't more than 15 <strong> tag.";
+        report.savelog(1,htmlcontent,testdir+"/testfile/","test1.log").then(()=>{
+            expect(fs.existsSync(testdir+"/testfile/"+"test1.log")).toBe(true);
+        });
+    });
 });
