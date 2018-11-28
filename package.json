@@ -1,5 +1,5 @@
 {
-  "name": "seo_check",
+  "name": "@jackchang/seo_check",
   "version": "1.0.0",
   "description": "seo_check",
   "main": "index.js",
