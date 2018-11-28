@@ -326,7 +326,7 @@ When check rule finish. Call  GenerateReport to Render reoprt.
 |----------|------------|----------------|-----------------|
 | SavePath | string             |   SaveFilePath   | Required   |
 | Filename | string             |   SaveFileName   | Required   |
-| fileType | seo_check.fileType |STREAM,FILE,CONSOLE|CONSOLE     |
+| fileType | seo_check.fileType |STREAM,FILE,CONSOLE|Required   |
 
 ```
 checker.loadHtmlContent(__dirname + '/test.html',seo_check.fileType.STREAM).then(()=>{
