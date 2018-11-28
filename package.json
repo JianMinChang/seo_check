@@ -1,6 +1,6 @@
 {
   "name": "@jackchang/seo_check",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "seo_check",
   "main": "index.js",
   "scripts": {
