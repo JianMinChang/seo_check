@@ -1,6 +1,11 @@
 
 seo_check
 ============
+Notes:
+
+Development environment
+Nodejs: v10.6.0
+NPM : 6.4.1
 
 ##description
 a simple tool to scan file/stream for defeats
