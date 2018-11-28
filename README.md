@@ -1,5 +1,5 @@
 
-seo_checker
+seo_check
 ============
 
 ##description
@@ -10,7 +10,7 @@ a simple tool to scan file/stream for defeats
 * easy to register customize SEO check rules
 
 ##installation
-``npm install @jackchang/seo_checker``
+``npm install @jackchang/seo_check``
 
 ## usage
 
@@ -18,7 +18,7 @@ a simple tool to scan file/stream for defeats
 
 ```
 //include module
-const seo_check = require('@jackchang/seo_checker');
+const seo_check = require('@jackchang/seo_check');
 
 //register new SEO rule
 seo_check.ExtendRule({tagname:"h2",ruleName:"checkh2"});
@@ -106,7 +106,7 @@ table of contents
 new with a constructor
 
 	//include module
-	const seo_check = require('@jackchang/seo_checker');
+	const seo_check = require('@jackchang/seo_check');
 	
 	//new instance
 	const checker = new seo_check({maxStrongTagCount:4});
@@ -141,7 +141,7 @@ output option
 
 ```
 //include module
-const seo_check = require('@jackchang/seo_checker');
+const seo_check = require('@jackchang/seo_check');
 
 //new instance File
 const checker = new seo_check({maxStrongTagCount:4});
@@ -152,7 +152,7 @@ checker.loadHtmlContent(path,seo_check.fileType.FILE).then(()=>{
 
 ```
 //include module
-const seo_check = require('@jackchang/seo_checker');
+const seo_check = require('@jackchang/seo_check');
 
 //new instance STREAM
 const checker = new seo_check({maxStrongTagCount:4});
