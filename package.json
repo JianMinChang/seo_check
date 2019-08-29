@@ -20,9 +20,10 @@
   "license": "ISC",
   "homepage": "https://github.com/JianMinChang/seo_check.git",
   "devDependencies": {
-    "jest": "^24.8.0"
+    "jest": "^25.0.0"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2"
+    "cheerio": "^1.0.0-rc.2",
+    "set-value": ">=2.0.1"
   }
 }
