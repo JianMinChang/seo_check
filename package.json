@@ -20,7 +20,7 @@
   "license": "ISC",
   "homepage": "https://github.com/JianMinChang/seo_check.git",
   "devDependencies": {
-    "jest": "^25.0.0"
+    "jest": "^29.3.1"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
